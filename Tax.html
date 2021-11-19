@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculation</title>
+</head>
+<body>
+    <center>
+    <table>
+        <tr>
+            <th> Employee Name</th>
+             <td id="nm"></td>
+        </tr>
+        <tr>
+            <th>Gross Salary</th>
+             <td id="gs"></td>
+        </tr>
+        <tr>
+            <th>Tax</th>
+             <td id="t"></td>
+        </tr>
+        <tr>
+           <th>Net Salary</th>
+             <td id="ns"></td>
+        </tr>
+    </table> <br>
+</center>
+
+
+    <h1>Employee Tax Calculation</h1>
+    Employee Name
+    <input type="text" id="en"> <br> <br>
+    Employee Basic Salary
+    <input type="text" id="bs"> <br> <br>
+    Employee House Allowance
+    <input type="text" id="ha"> <br> <br>
+    Employee Transport Allowance
+    <input type="text" id="ta"> <br> <br>
+    Empoyee Risk Allowance
+    <input type="text" id="ra"> <br> <br>
+    Employee Medical Allowance
+    <input type="text" id="ma"> <br> <br>
+
+    <button onclick="names()">Calculate</button>
+    <style>
+        table,th,td {
+     border: 2px solid black;
+     border-collapse: collapse;
+     }
+     </style>
+
+    <script>
+        function names() {
+            var name = document.getElementById("en").value
+            document.getElementById("nm").innerHTML= name
+            var Num1 = parseFloat(document.getElementById("bs").value)
+            var Num2 = parseFloat(document.getElementById("ha").value)
+            var Num3 = parseFloat(document.getElementById("ta").value)
+            var Num4 = parseFloat(document.getElementById("ra").value)
+            var Num5 = parseFloat(document.getElementById("ma").value)
+            var sum = Num1 + Num2 + Num3 + Num4 + Num5
+            document.getElementById("gs").innerHTML=sum
+            if (sum > 500000) {
+            var sum1= 0.3*sum
+            var net=sum-sum1
+            document.getElementById("t").innerHTML=sum1
+            document.getElementById("ns").innerHTML=net
+            }
+            else if(sum >= 200000) {
+            var sum2= 0.2*sum
+            var net=sum-sum2
+            document.getElementById("t").innerHTML=sum2
+            document.getElementById("ns").innerHTML=net
+            }
+            else if(sum >= 100000) {
+            var sum3= 0.15*sum
+            var net=sum-sum3
+            document.getElementById("t").innerHTML=sum3
+            document.getElementById("ns").innerHTML=net
+            }
+            else if(sum >= 70000) {
+            var sum4= 0.1*sum
+            var net=sum-sum4
+            document.getElementById("t").innerHTML=sum4
+            document.getElementById("ns").innerHTML=net
+            }
+            else if(sum >= 40000) {
+            var sum5= 0.05*sum
+            var net=sum-sum6
+            document.getElementById("t").innerHTML=sum5
+            document.getElementById("ns").innerHTML=net
+            }
+            else if(sum >= 10000) {
+            var sum6= 0.03*sum
+            var net=sum-sum6
+            document.getElementById("t").innerHTML=sum6
+            document.getElementById("ns").innerHTML=net
+            }
+            else{
+            var sum7= sum
+            document.getElementById("t").innerHTML=0
+            document.getElementById("ns").innerHTML=sum7
+            }
+        }
+            // var sum1=sum-(0.3*(num1+num2+num3+num4+num5))
+            // var sum2=sum-(0.2*(num1+num2+num3+num4+num5))
+            // var sum3=sum-(0.15*(num1+num2+num3+num4+num5))
+            // var sum4=sum-(0.1*(num1+num2+num3+num4+num5))
+            // var sum5=sum-(0.05*(num1+num2+num3+num4+num5))
+            // var sum6=sum-(0.03*(num1+num2+num3+num4+num5))
+            // if(sum>500000)
+            // document.getElementById("ns").innerHTML=sum1
+            // else if(sum>=200000 && sum <=500000)
+            // document.getElementById("ns").innerHTML=sum2
+            //  else if(sum>=100000 && sum <= 200000)
+            // document.getElementById("ns").innerHTML=sum3
+            // else if(sum >=70000 && sum <= 100000)
+            // document.getElementById("ns").innerHTML=sum4
+            // else if(sum >=40000 && sum <= 70000)
+            // document.getElementById("ns").innerHTML=sum5
+            // else if(sum >=10000 && sum <= 40000)
+            // document.getElementById('ns').innerHTML=sum6
+            // else {
+            // document.getElementById("ns").innerHTML=sum
+            // }
+        // function gross() {
+        //     var Num1 = parseFloat(document.getElementById("bs").value)
+        //     var Num2 = parseFloat(document.getElementById("ha").value)
+        //     var Num3 = parseFloat(document.getElementById("ta").value)
+        //     var Num4 = parseFloat(document.getElementById("ra").value)
+        //     var Num5 = parseFloat(document.getElementById("ma").value)
+        //     var sum = Num1 + Num2 + Num3 + Num4 + Num5
+        //     document.getElementById("gs").innerHTML=sum
+        // }
+        
+        // function tax() {
+        //     var num1 = parseFloat(document.getElementById("bs").value)
+        //     var num2 = parseFloat(document.getElementById("ha").value)
+        //     var num3 = parseFloat(document.getElementById("ta").value)
+        //     var num4 = parseFloat(document.getElementById("ra").value)
+        //     var num5 = parseFloat(document.getElementById("ma").value)
+        //     var sum = num1 + num2 + num3 + num4 + num5
+        //     var sum1= 0.3*(num1 + num2 + num3 + num4 + num5)
+        //     var sum2= 0.2*(num1 + num2 + num3 + num4 + num5)
+        //     var sum3= 0.15*(num1 + num2 + num3 + num4 + num5)
+        //     var sum4= 0.1*(num1 + num2 + num3 + num4 + num5)
+        //     var sum5= 0.05*(num1 + num2 + num3 + num4 + num5)
+        //     var sum6= 0.03*(num1 + num2 + num3 + num4 + num5)
+        //     if (sum > 500000) {
+        //     document.getElementById("t").innerHTML=sum1
+        //     }
+        //     else if(sum >= 200000 && sum<= 500000) {
+        //     document.getElementById("t").innerHTML=sum2
+        //     }
+        //      else if(sum >= 100000 && sum<= 200000) {
+        //     document.getElementById("t").innerHTML=sum3
+        //     }
+        //     else if(sum >= 70000 && sum<= 100000) {
+        //     document.getElementById("t").innerHTML=sum4
+        //     }
+        //     else if(sum >= 40000 && sum<= 70000) {
+        //     document.getElementById("t").innerHTML=sum5
+        //     }
+        //     else if(sum >= 10000 && sum<= 40000) {
+        //     document.getElementById("t").innerHTML=sum6
+        //     }
+        //     else{
+        //     document.getElementById("t").innerHTML=sum
+        //     }
+        // }
+    //     function net() {
+    //     var num1=parseFloat(document.getElementById("bs").value)
+    //         var num2=parseFloat(document.getElementById("ha").value)
+    //         var num3=parseFloat(document.getElementById("ta").value)
+    //         var num4=parseFloat(document.getElementById("ra").value)
+    //         var num5=parseFloat(document.getElementById("ma").value)
+    //         var sum= num1+num2+num3+num4+num5
+    //         var sum1=sum-(0.3*(num1+num2+num3+num4+num5))
+    //         var sum2=sum-(0.2*(num1+num2+num3+num4+num5))
+    //         var sum3=sum-(0.15*(num1+num2+num3+num4+num5))
+    //         var sum4=sum-(0.1*(num1+num2+num3+num4+num5))
+    //         var sum5=sum-(0.05*(num1+num2+num3+num4+num5))
+    //         var sum6=sum-(0.03*(num1+num2+num3+num4+num5))
+    //         if(sum>500000)
+    //         document.getElementById("ns").innerHTML=sum1
+    //         else if(sum>=200000 && sum <=500000)
+    //         document.getElementById("ns").innerHTML=sum2
+    //          else if(sum>=100000 && sum <= 200000)
+    //         document.getElementById("ns").innerHTML=sum3
+    //         else if(sum >=70000 && sum <= 100000)
+    //         document.getElementById("ns").innerHTML=sum4
+    //         else if(sum >=40000 && sum <= 70000)
+    //         document.getElementById("ns").innerHTML=sum5
+    //         else if(sum >=10000 && sum <= 40000)
+    //         document.getElementById('ns').innerHTML=sum6
+    //         else {
+    //         document.getElementById("ns").innerHTML=sum
+    //         }
+
+    // }
+    </script>
+
+</body>
+</html>
